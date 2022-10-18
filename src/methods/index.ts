@@ -1,2 +1,2 @@
 export * from "./configureApplets";
-export * from "./initializeApplets";
+export * from "./initializeApplet";
