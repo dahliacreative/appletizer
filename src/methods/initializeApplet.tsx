@@ -10,7 +10,7 @@ export interface IApplet {
 }
 
 export const initializeApplet = (name: string, Applet: React.FC<IApplet>) => {
-  (window as any)[`render${name}`] = (
+  (window as any)[`mount${name}`] = (
     containerId: string,
     history: history.History,
     context: IApplet["context"]
