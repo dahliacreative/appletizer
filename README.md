@@ -47,7 +47,19 @@ initializeApplet(key: string, applet: React.FC)
 
 # Usage Example
 
-## Spine Application
+## Prerequisite
+
+In order for applet.izer to work, the server for your applets must host an `asset-manifest.json` at the root pointing to the main entry point.
+
+```json
+{
+  "files": {
+    "main.js": "/path/to/your/bundle.js"
+  }
+}
+```
+
+## Spine Application (with router)
 
 ```tsx
 import { configureApplets } from "appletizer";
@@ -61,11 +73,15 @@ const App = () => {
       },
     },
   });
+
   return (
     <Router>
       <Route path="/" component={Applets.Home} />
     </Router>
   );
+
+  // Without routing
+  // return <Applets.Home />;
 };
 ```
 
