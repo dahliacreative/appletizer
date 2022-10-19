@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import eslint from "rollup-plugin-eslint";
 
 const packageJson = require("./package.json");
 
@@ -21,6 +22,9 @@ export default [
       },
     ],
     plugins: [
+      eslint({
+        include: ["src/**"],
+      }),
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),

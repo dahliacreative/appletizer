@@ -98,6 +98,10 @@ const App = () => {
 initializeApp("Home", App);
 ```
 
+# Contributing
+
+We welcome contibutions, if you would like to contribute, please read our [guidelines](https://github.com/dahliacreative/appletizer/blob/main/CONTRIBUTING.md)
+
 # License
 
 MIT Licensed. Copyright © dahliacreative.
