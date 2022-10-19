@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
-import { IApplet } from "../methods/initializeApplet";
 
-export interface IAppletProps extends IApplet {
+export interface IAppletProps {
   host: string;
   name: string;
+  context?: any;
 }
 
-export const Applet: React.FC<IAppletProps> = ({
-  name,
-  host,
-  history,
-  context,
-}) => {
+export const Applet: React.FC<IAppletProps> = ({ name, host, context }) => {
   const APPLICATION_ID = `applet-${name}`;
   const SCRIPT_ID = `applet-script-${name}`;
   const MANIFEST = `${host}/asset-manifest.json`;
@@ -21,7 +16,7 @@ export const Applet: React.FC<IAppletProps> = ({
 
   useEffect(() => {
     const renderApplet = () => {
-      (window as any)[MOUNT](APPLICATION_ID, history, context);
+      (window as any)[MOUNT](APPLICATION_ID, context);
     };
 
     if (document.getElementById(SCRIPT_ID)) {

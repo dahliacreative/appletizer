@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { configureApplets } from "../methods/configureApplets";
-import { createBrowserHistory } from "history";
 import fetchMock from "jest-fetch-mock";
 
 fetchMock.enableMocks();
@@ -16,8 +15,7 @@ describe("configureApplets", () => {
       One: {
         host: "http://localhost:3001",
         context: {
-          context1: () => "context1",
-          context2: () => "context2",
+          name: "One",
         },
       },
       Two: {
@@ -30,9 +28,7 @@ describe("configureApplets", () => {
       Two: expect.any(Function),
     });
 
-    const { container } = render(
-      <Applets.One history={createBrowserHistory()} />
-    );
+    const { container } = render(<Applets.One />);
 
     expect(container).toMatchSnapshot();
   });

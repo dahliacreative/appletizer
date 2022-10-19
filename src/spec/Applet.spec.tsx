@@ -2,8 +2,6 @@ import React from "react";
 import fetchMock from "jest-fetch-mock";
 import { render } from "@testing-library/react";
 import { Applet } from "../components/Applet";
-import { createBrowserHistory } from "history";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 fetchMock.enableMocks();
 
@@ -14,11 +12,7 @@ describe("Applet", () => {
     });
 
     const { container } = render(
-      <Applet
-        name="Test"
-        host="http://localhost:3001"
-        history={createBrowserHistory()}
-      />
+      <Applet name="Test" host="http://localhost:3001" />
     );
 
     expect(container).toMatchSnapshot();
@@ -32,19 +26,32 @@ describe("Applet", () => {
     const mockMount = jest.fn();
     (window as any).mountTest = mockMount;
 
-    render(
+    const { rerender } = render(
       <Applet
         name="Test"
         host="http://localhost:3001"
-        history={createBrowserHistory()}
-        context={{}}
+        context={{
+          name: "Test",
+        }}
       />
     );
 
-    expect(mockMount).toHaveBeenCalledWith(
-      "applet-Test",
-      expect.any(Object),
-      {}
+    expect(mockMount).toHaveBeenCalledWith("applet-Test", {
+      name: "Test",
+    });
+
+    rerender(
+      <Applet
+        name="Test"
+        host="http://localhost:3001"
+        context={{
+          name: "Updated name",
+        }}
+      />
     );
+
+    expect(mockMount).toHaveBeenCalledWith("applet-Test", {
+      name: "Updated name",
+    });
   });
 });
