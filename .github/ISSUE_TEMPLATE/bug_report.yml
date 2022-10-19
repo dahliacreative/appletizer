@@ -19,7 +19,7 @@ body:
     attributes:
       label: To Reproduce
       description: >-
-        Please provide a reproducable code example
+        Please provide a reproducible code example using codesandbox.io or similar
       placeholder: >-
         Paste your repository and deployed reproduction here. We prioritize
         issues with reproductions over those without.
