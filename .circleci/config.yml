@@ -13,14 +13,12 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
-        steps:
-          - run: npm install
-          - run: CI=true npm run test:coverage
-          - coverage-reporter/send_report:
-              coverage-reports: 'coverage/lcov.info'
-              project-token: $CODACY_PROJECT_TOKEN
-          - run: CI=true npm run build
+      - run: npm install
+      - run: CI=true npm run test:coverage
+      - coverage-reporter/send_report:
+          coverage-reports: 'coverage/lcov.info'
+          project-token: $CODACY_PROJECT_TOKEN
+      - run: CI=true npm run build
 
 workflows:
   build:
