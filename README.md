@@ -1,4 +1,8 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dahliacreative/appletizer/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dahliacreative/appletizer/tree/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c40cd0505a0f4eda9f665dc1b9ff9862)](https://www.codacy.com/gh/dahliacreative/appletizer/dashboard?utm_source=github.com&utm_medium=referral&utm_content=dahliacreative/appletizer&utm_campaign=Badge_Grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c40cd0505a0f4eda9f665dc1b9ff9862)](https://www.codacy.com/gh/dahliacreative/appletizer/dashboard?utm_source=github.com&utm_medium=referral&utm_content=dahliacreative/appletizer&utm_campaign=Badge_Coverage)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](hhttps://github.com/dahliacreative/appletizer/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/appletizer.svg?style=flat)](https://www.npmjs.com/package/appletizer)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dahliacreative/appletizer/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/dahliacreative/appletizer/tree/main)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c40cd0505a0f4eda9f665dc1b9ff9862)](https://www.codacy.com/gh/dahliacreative/appletizer/dashboard?utm_source=github.com&utm_medium=referral&utm_content=dahliacreative/appletizer&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c40cd0505a0f4eda9f665dc1b9ff9862)](https://www.codacy.com/gh/dahliacreative/appletizer/dashboard?utm_source=github.com&utm_medium=referral&utm_content=dahliacreative/appletizer&utm_campaign=Badge_Coverage)
 
 # Install
 
@@ -71,3 +75,7 @@ const App = () => {
 
 initializeApp("Home", App);
 ```
+
+# License
+
+MIT Licensed. Copyright © dahliacreative.
