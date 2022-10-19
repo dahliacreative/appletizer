@@ -37,10 +37,14 @@ export const Applet: React.FC<IAppletProps> = ({
         script.crossOrigin = "";
         script.src = `${host}${manifest.files["main.js"]}`;
         script.onload = renderApplet;
-        document.head.appendChild(script);
+        document.body.appendChild(script);
       });
 
     return () => {
+      // Ignoring this line because it's not possible to test
+      // due to a bug in testing-library where effect cleanups
+      // are not called when unmounting.
+      // istanbul ignore next
       (window as any)[UNMOUNT] && (window as any)[UNMOUNT]();
     };
   });

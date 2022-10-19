@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`configureApplets should return configured applets 1`] = `
+<div>
+  <main
+    id="applet-One"
+  />
+</div>
+`;

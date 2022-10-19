@@ -20,6 +20,13 @@ export function configureApplets<T extends Record<string, IAppletConfig>>(
   config: T
 ): TConfiguredApplets<T> {
   return Object.entries(config).reduce((apps, [key, app]) => {
+    const context = Object.entries(app.context ?? {}).reduce(
+      (ctxs, [key, ctx]) => ({
+        ...ctxs,
+        [key]: ctx(),
+      }),
+      {}
+    );
     return {
       ...apps,
       [key]: ({ history }: IRouterProps) => (
@@ -27,13 +34,7 @@ export function configureApplets<T extends Record<string, IAppletConfig>>(
           host={app.host}
           name={key}
           history={history}
-          context={Object.entries(app.context ?? {}).reduce(
-            (ctxs, [key, ctx]) => ({
-              ...ctxs,
-              [key]: ctx(),
-            }),
-            {}
-          )}
+          context={context}
         />
       ),
     };
