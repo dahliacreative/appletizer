@@ -10,6 +10,8 @@ export const initializeApplet = (name: string, Applet: React.FC) => {
         <Applet />
       </AppletContextProvider>
     );
-    (window as any)[`unmount${name}`] = root.unmount;
+    (window as any)[`unmount${name}`] = () => {
+      root.unmount();
+    };
   };
 };
