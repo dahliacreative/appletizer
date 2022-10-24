@@ -46,7 +46,7 @@
   ],
   "types": "dist/index.d.ts",
   "jest": {
-    "coverageThresholds": {
+    "coverageThreshold": {
       "global": {
         "branches": 90,
         "functions": 90,
