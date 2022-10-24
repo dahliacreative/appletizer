@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDom from "react-dom/client";
-import { AppletContextProvider } from "../context/context";
+import {
+  AppletContextProvider,
+  AppletContext,
+  useAppletContext,
+} from "../context/context";
 
 export const initializeApplet = (name: string, Applet: React.FC) => {
   (window as any)[`mount${name}`] = (containerId: string, context: any) => {
@@ -15,3 +19,5 @@ export const initializeApplet = (name: string, Applet: React.FC) => {
     };
   };
 };
+
+export { AppletContext, useAppletContext };
