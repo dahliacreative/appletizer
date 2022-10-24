@@ -6,7 +6,11 @@ import {
   useAppletContext,
 } from "../context/context";
 
-export const initializeApplet = (name: string, Applet: React.FC) => {
+export const initializeApplet = (
+  name: string,
+  Applet: React.FC,
+  developmentContext: any = {}
+) => {
   (window as any)[`mount${name}`] = (containerId: string, context: any) => {
     const root = ReactDom.createRoot(document.getElementById(containerId)!);
     root.render(
@@ -18,6 +22,15 @@ export const initializeApplet = (name: string, Applet: React.FC) => {
       root.unmount();
     };
   };
+  if (
+    process.env.NODE_ENV === "development" &&
+    process.env.REACT_APP_ISOLATED_APPLET
+  ) {
+    (window as any)[`mount${name}`](
+      process.env.REACT_APP_ISOLATED_CONTAINER || "root",
+      developmentContext
+    );
+  }
 };
 
 export { AppletContext, useAppletContext };

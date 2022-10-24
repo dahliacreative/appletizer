@@ -41,8 +41,10 @@ IAppletConfig {
 
 ## Initializing Applets
 
+N.B. The third paramater is optional and is for providing static mocked context for when developing your applet in isolation. Providing this option allows you to pass context to your applet without having to have your spine application running at the same time.
+
 ```ts
-initializeApplet(key: string, applet: React.FC)
+initializeApplet(key: string, applet: React.FC, developmentContext?: any)
 ```
 
 # Usage Example
@@ -95,8 +97,20 @@ const App = () => {
   return <h1>Hi {context.user}. Welcome to this cool applet!</h1>;
 };
 
-initializeApp("Home", App);
+initializeApp("Home", App, {});
 ```
+
+# Developing applets in isolation
+
+In order to develop your applet in isolation (without the spine app running), you will need to run your applet with the following environment variables:
+
+```
+REACT_APP_ISOLATED_APPLET=true
+REACT_APP_ISOLATED_CONTAINER=yourContainerId
+```
+
+- `REACT_APP_ISOLATED_APPLET` this tells applet.izer that you are developing in isolation and therefore the applet will mount when initialized
+- `REACT_APP_ISOLATED_CONTAINER` is optional and is where you want your applet to be mounted, we presume usage of CRA therefore if not set, the default is `"root"`
 
 # Contributing
 

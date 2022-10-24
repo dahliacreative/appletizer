@@ -4,7 +4,7 @@
   "private": true,
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^22.0.0",
