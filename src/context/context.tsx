@@ -5,7 +5,7 @@ interface IAppletProvider {
   children: React.ReactNode;
 }
 
-export const AppletContext = createContext<any>({});
+const AppletContext = createContext<any>({});
 
 export const AppletContextProvider: React.FC<IAppletProvider> = ({
   context,

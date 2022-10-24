@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom/client";
-import {
-  AppletContextProvider,
-  AppletContext,
-  useAppletContext,
-} from "../context/context";
+import { AppletContextProvider, useAppletContext } from "../context/context";
 
 export const initializeApplet = (
   name: string,
@@ -22,6 +18,7 @@ export const initializeApplet = (
       root.unmount();
     };
   };
+
   if (
     process.env.NODE_ENV === "development" &&
     process.env.REACT_APP_ISOLATED_APPLET
@@ -33,4 +30,4 @@ export const initializeApplet = (
   }
 };
 
-export { AppletContext, useAppletContext };
+export { useAppletContext };

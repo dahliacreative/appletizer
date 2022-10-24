@@ -39,6 +39,7 @@ export const Applet: React.FC<IAppletProps> = ({ name, host, context }) => {
       // Ignoring this line because it's not possible to test
       // due to a bug in testing-library where effect cleanups
       // are not called when unmounting.
+
       // istanbul ignore next
       (window as any)[UNMOUNT] && (window as any)[UNMOUNT]();
     };
